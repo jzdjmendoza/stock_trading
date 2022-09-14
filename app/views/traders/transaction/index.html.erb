@@ -1,0 +1,19 @@
+<%= render 'layouts/nav' %>
+
+<div class='container'>
+  <h4>Transaction List: </h4>
+  <table class='table-auto'>
+    <thead>
+      <tr>
+        <th>Stock</th>
+        <th>Type</th>
+        <th>Quantity</th>
+        <th>Unit Price (during Transaction)</th>
+        <th>Total</th>
+        <th>Transaction Date</th>
+      </tr>
+    </thead>
+  <%- @transactions.each do |transaction| %>
+    <%= render partial: 'transaction', locals: { transaction: transaction } %>
+  <% end %>
+</div>

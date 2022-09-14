@@ -1,0 +1,15 @@
+<tr>
+  <td><%= user.id%></td>
+  <td><%= user.first_name%></td>
+  <td><%= user.last_name%></td>
+  <td><%= user.status%></td>
+  <%- if is_show %> 
+    <td><%= link_to "Edit", admin_users_edit_path(id: user.id), class: 'font-medium text-blue-600 dark:text-blue-500 hover:underline' %></td>
+  <% else %>
+    <td><%= link_to "View", view_user_path(id: user.id), class: 'font-medium text-blue-600 dark:text-blue-500 hover:underline' %></td>
+  <% end %>
+  <%- if user.status == 'pending' %>
+    <td><%= button_to "Approve", update_user_path(id: user.id, status: 'approved'), method: :put, class: 'text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2' %></td>
+    <td><%= button_to "Reject", update_user_path(id: user.id, status: 'rejected'), method: :put, class: 'text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2' %></td>
+  <% end %>
+</tr>

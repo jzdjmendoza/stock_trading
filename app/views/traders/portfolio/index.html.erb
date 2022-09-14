@@ -1,0 +1,17 @@
+<%= render 'layouts/nav' %>
+
+<div class='container'>
+  <h4>Portfolio</h4>
+  <h2>Total Value - <%= number_to_currency(@total) %></h2>
+  <table class='table-auto'>
+    <thead>
+      <tr>
+        <th>Stock</th>
+        <th>Current Price</th>
+        <th>Current Value</th>
+      </tr>
+    </thead>
+  <%- @portfolios.each do |portfolio| %>
+    <%= render partial: 'portfolio', locals: { portfolio: portfolio } %>
+  <% end %>
+</div>

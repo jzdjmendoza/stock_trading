@@ -1,0 +1,16 @@
+<nav class="bg-gray-800 items-center justify-between">
+    <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+        <div class="flex items-center p-6 hover:bg-gray-700">
+          <%= link_to "Stock Trading", dashboard_path, class: 'self-center text-xl font-semibold whitespace-nowrap dark:text-white' %>
+        </div>
+        <div class="flex items-center p-6 hover:bg-gray-700">
+          <%= link_to "Transactions", transaction_path %>
+        </div>
+        <div class="flex items-center p-6 hover:bg-gray-700">
+          <%= link_to "Portfolio", portfolio_path %>
+        </div>
+        <div class="flex items-center p-6 hover:bg-gray-700">
+        <%= button_to "Log Out", destroy_user_session_path, method: :delete %>
+        </div>
+    </div>
+</nav>

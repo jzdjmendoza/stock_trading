@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_30_130106) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_12_164527) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +24,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_130106) do
     t.datetime "updated_at", null: false
     t.index ["admin_type", "admin_id"], name: "index_admin_logs_on_admin"
     t.index ["trader_type", "trader_id"], name: "index_admin_logs_on_trader"
+  end
+
+  create_table "portfolios", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "stock", null: false
+    t.integer "shares"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_portfolios_on_user_id"
   end
 
   create_table "stocks", force: :cascade do |t|
@@ -46,6 +55,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_130106) do
     t.bigint "stock_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "stock_symbol"
     t.index ["stock_id"], name: "index_transactions_on_stock_id"
     t.index ["user_id"], name: "index_transactions_on_user_id"
   end
@@ -61,6 +71,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_130106) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.boolean "is_approved", default: false
+    t.string "status", default: "pending"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

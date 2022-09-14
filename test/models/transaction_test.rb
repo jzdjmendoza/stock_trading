@@ -4,6 +4,7 @@
 #
 #  id               :bigint           not null, primary key
 #  quantity         :integer
+#  stock_symbol     :string
 #  total_price      :decimal(15, 10)
 #  transaction_type :string
 #  unit_price       :decimal(15, 10)

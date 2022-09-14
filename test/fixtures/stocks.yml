@@ -13,18 +13,18 @@
 #  updated_at     :datetime         not null
 #
 
-one:
-  company_name: MyString
-  symbol: MyString
-  latest_price: 9.99
-  change: 9.99
-  volume: 1
-  previous_close: 9.99
+# one:
+#   company_name: MyString
+#   symbol: MyString
+#   latest_price: 9.99
+#   change: 9.99
+#   volume: 1
+#   previous_close: 9.99
 
-two:
-  company_name: MyString
-  symbol: MyString
-  latest_price: 9.99
-  change: 9.99
-  volume: 1
-  previous_close: 9.99
+# two:
+#   company_name: MyString
+#   symbol: MyString
+#   latest_price: 9.99
+#   change: 9.99
+#   volume: 1
+#   previous_close: 9.99

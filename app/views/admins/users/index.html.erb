@@ -1,0 +1,30 @@
+<p style="color: green"><%= notice %></p>
+<nav class="bg-gray-800 items-center justify-between">
+  <div class="flex flex-wrap justify-between items-center max-w-screen-xl w-full">
+      <a href="#" class="flex items-center p-6 hover:bg-gray-700">
+          <span class="self-center text-xl font-semibold whitespace-nowrap">Stock Trading</span>
+      </a>
+      <div class="flex items-right">
+        <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: 'p-6 text-md font-medium text-gray-300 dark:text-blue-500 hover:bg-gray-700' %>
+      </div>
+  </div>
+</nav>
+<%= link_to "Add a New User", admin_users_new_path, class: 'font-large text-gray-300 dark:text-blue-500 hover:bg-gray-700' %>
+
+<div class='overflow-x-auto'>
+  <table class='table-auto'>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Status</th>
+        <th>Action</th>
+        <th></th>
+      </tr>
+    </thead>
+    <% @users.each do |user| %>
+      <%= render user, is_show: false %>
+    <% end %>
+  </table>
+</div>

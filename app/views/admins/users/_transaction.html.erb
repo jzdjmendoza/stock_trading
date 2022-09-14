@@ -1,0 +1,8 @@
+<tr>
+  <td><%= transaction.stock_symbol %></td>
+  <td><%= transaction.transaction_type %></td>
+  <td><%= transaction.quantity %></td>
+  <td><%= number_to_currency(transaction.unit_price) %></td>
+  <td><%= transaction.total_price %></td>
+  <td><%= transaction.created_at %></td>
+</tr>

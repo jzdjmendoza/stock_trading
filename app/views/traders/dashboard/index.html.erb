@@ -1,0 +1,57 @@
+<%- if current_user.status == 'pending' %>
+  <nav class="bg-white border-gray-200 dark:bg-gray-900">
+    <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl px-4 md:px-6 py-2.5">
+        <div class="flex items-center">
+          <%= link_to "Stock Trading", dashboard_path, class: 'self-center text-xl font-semibold whitespace-nowrap dark:text-white' %>
+        </div>
+        <div class="flex items-center">
+        <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: 'text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline' %>
+        </div>
+    </div>
+  </nav>
+  <h2>Please have admin approve your account</h2>
+<% else %>
+  <%= render 'layouts/nav' %>
+
+  <h4>Search stock: </h4>
+  <%= form_tag(dashboard_path, method: :get) do %>
+      <%= text_field_tag(:search, params[:search]) %>
+      <%= submit_tag ("Search") %>
+  <% end %>
+
+  <% if @stock %>
+    <table class='table-fixed'>
+      <thead>
+        <tr>
+          <th>Stock</th>
+          <th>Latest Price</th>
+          <th>Change</th>
+          <th>High</th>
+          <th>Low</th>
+          <th>Action</th>
+          <th></th>
+        </tr>
+      </thead>
+      <%= render partial: 'stock', locals: { stock: @stock } %>
+    </table>
+  <% else %>
+    <h4> No record found </h4>
+  <% end %> <br/>
+
+  <h4>IEX Most Active: </h4>
+  <table class='table-fixed'>
+    <thead>
+      <tr>
+        <th>Stock</th>
+        <th>Latest Price</th>
+        <th>Change</th>
+        <th>High</th>
+        <th>Low</th>
+        <th>Action</th>
+        <th></th>
+      </tr>
+    </thead>
+  <%- @stocks.each do |stock| %>
+    <%= render partial: 'stock', locals: { stock: stock } %>
+  <% end %>
+<% end %>

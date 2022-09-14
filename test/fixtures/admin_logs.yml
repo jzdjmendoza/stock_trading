@@ -17,8 +17,8 @@
 #  index_admin_logs_on_trader  (trader_type,trader_id)
 #
 
-one:
-  action: MyString
+# one:
+#   action: MyString
 
-two:
-  action: MyString
+# two:
+#   action: MyString
